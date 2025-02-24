@@ -47,7 +47,10 @@ Namespace word_processing_document_api_track_changes
 
 
 			documentProcessor.ExportToPdf("DocumentWithAppliedRevisions.pdf")
-			System.Diagnostics.Process.Start("DocumentWithAppliedRevisions.pdf")
+
+			Dim processor As New Process()
+			processor.StartInfo = New ProcessStartInfo("DocumentWithAppliedRevisions.pdf") With {.UseShellExecute = True}
+			processor.Start()
 
 		End Sub
 

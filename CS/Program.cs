@@ -1,6 +1,7 @@
 ﻿using DevExpress.XtraRichEdit;
 using DevExpress.XtraRichEdit.API.Native;
 using System;
+using System.Diagnostics;
 using System.Linq;
 
 namespace word_processing_document_api_track_changes
@@ -23,7 +24,7 @@ namespace word_processing_document_api_track_changes
             
             TrackChangesOptions trackChangesOptions = documentProcessor.Options.Annotations.TrackChanges;
 
-            //Specify how revisions should be displyed in the document:
+            //Specify how revisions should be displayed in the document:
 
             trackChangesOptions.DisplayForReviewMode = DisplayForReviewMode.AllMarkup;
             trackChangesOptions.DisplayFormatting = DisplayFormatting.ColorOnly;
@@ -49,7 +50,12 @@ namespace word_processing_document_api_track_changes
 
 
             documentProcessor.ExportToPdf("DocumentWithAppliedRevisions.pdf");
-            System.Diagnostics.Process.Start("DocumentWithAppliedRevisions.pdf");
+            var p = new Process();
+            p.StartInfo = new ProcessStartInfo(@"DocumentWithAppliedRevisions.pdf")
+            {
+                UseShellExecute = true
+            };
+            p.Start();
 
         }
 

@@ -14,7 +14,7 @@ The following code sample project shows how to use Word Processing Document API 
 
 ## Files to Review
 
-* [Program.cs](./CS/word-processing-document-api-track-changes/Program.cs) (VB: [Program.vb](./VB/word-processing-document-api-track-changes/Program.vb))
+* [Program.cs](./CS/Program.cs) (VB: [Program.vb](./VB/Program.vb))
 
 ## Documentation
 
